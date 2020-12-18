@@ -2,6 +2,51 @@
 
 ## Brief
 
+Implementation of basic kprobes demo kernel module.  
+The  module places kprobes probe on do_exit.   
+On each exited process, the module will print  
+a log with the process name and exit code.
+
+Example output: 
+``` text
+[ 3692.905970] handler_pre : handler_pre: name [sudo], pid [6250], exit_code [0] 
+[ 3692.906176] handler_pre : handler_pre: name [make], pid [6249], exit_code [0] 
+[ 3696.337482] handler_pre : handler_pre: name [dircolors], pid [6255], exit_code [0] 
+[ 3696.608100] handler_pre : handler_pre: name [systemd-udevd], pid [6252], exit_code [0] 
+[ 3707.276686] handler_pre : handler_pre: name [kworker/dying], pid [2688], exit_code [0] 
+[ 3711.833541] handler_pre : handler_pre: name [pool], pid [6253], exit_code [0] 
+[ 3711.983803] handler_pre : handler_pre: name [Backgro~Pool #3], pid [3513], exit_code [0] 
+[ 3712.709814] handler_pre : handler_pre: name [git], pid [6258], exit_code [0] 
+
+```
+
+## Usage
+
+In order to install the kenrel module use the following steps:
+
+Step 1 - compile the kernel module object file.  
+```
+make
+```
+
+Step 2 - Install the kernel module into the kernel.  
+file.  
+```
+make install
+```
+
+Step 3 - Observe the logs printed by the module.  
+
+file.  
+```
+sudo dmesg -w
+```
+
+To uninstall the module please use the following command:
+
+``` bash
+make uninstall
+```
 
 
 ## Links 
