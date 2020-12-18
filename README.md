@@ -2,10 +2,8 @@
 
 ## Brief
 
-Implementation of basic kprobes demo kernel module.  
-The  module places kprobes probe on do_exit.   
-On each exited process, the module will print  
-a log with the process name and exit code.
+Implementation of basic kprobes demo kernel module. The  module places kprobes probe on do_exit.  
+On each exited process, the module will print a log with the process name and exit code.  
 
 Example output: 
 ``` text
@@ -30,14 +28,13 @@ make
 ```
 
 Step 2 - Install the kernel module into the kernel.  
-file.  
+  
 ```
 make install
 ```
 
 Step 3 - Observe the logs printed by the module.  
 
-file.  
 ```
 sudo dmesg -w
 ```
